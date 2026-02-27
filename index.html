@@ -281,12 +281,149 @@
             margin-bottom: 1rem;
         }
 
+        /* Example Cases Section */
+        .section-title {
+            font-size: 1.6rem;
+            font-weight: 700;
+            margin: 3rem 0 0.5rem;
+            background: linear-gradient(135deg, var(--accent), var(--accent2));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .section-desc {
+            color: var(--text-muted);
+            font-size: 0.92rem;
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+        }
+
+        .cases-table {
+            width: 100%;
+            border-collapse: collapse;
+            background: var(--surface);
+            border-radius: 10px;
+            overflow: hidden;
+            border: 1px solid var(--surface2);
+            margin-bottom: 2rem;
+        }
+
+        .cases-table th {
+            background: var(--surface2);
+            padding: 0.65rem 1rem;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--text-muted);
+            text-align: left;
+            font-weight: 700;
+        }
+
+        .cases-table td {
+            padding: 0.6rem 1rem;
+            font-size: 0.88rem;
+            text-align: left;
+            border-top: 1px solid rgba(71, 85, 105, 0.3);
+        }
+
+        .cases-table td:first-child {
+            width: 60px;
+            text-align: center;
+            font-weight: 700;
+        }
+
+        .level-tag {
+            display: inline-block;
+            padding: 0.15rem 0.5rem;
+            border-radius: 5px;
+            font-size: 0.72rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+        }
+
+        .level-l1 {
+            background: rgba(52, 211, 153, 0.15);
+            color: var(--green);
+            border: 1px solid rgba(52, 211, 153, 0.3);
+        }
+
+        .level-l2 {
+            background: rgba(251, 191, 36, 0.15);
+            color: var(--gold);
+            border: 1px solid rgba(251, 191, 36, 0.3);
+        }
+
+        .level-l3 {
+            background: rgba(248, 113, 113, 0.15);
+            color: var(--red);
+            border: 1px solid rgba(248, 113, 113, 0.3);
+        }
+
+        /* Contact Section */
+        .contact-section {
+            margin-top: 2rem;
+            padding: 2rem;
+            background: var(--surface);
+            border-radius: 12px;
+            border: 1px solid var(--surface2);
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.75rem;
+        }
+
+        .contact-icon {
+            font-size: 1.5rem;
+            flex-shrink: 0;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(56, 189, 248, 0.1);
+            border-radius: 10px;
+        }
+
+        .contact-info h4 {
+            font-size: 0.9rem;
+            font-weight: 700;
+            color: var(--text);
+            margin-bottom: 0.25rem;
+        }
+
+        .contact-info p {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            line-height: 1.5;
+        }
+
+        .contact-info a {
+            color: var(--accent);
+            text-decoration: none;
+        }
+
+        .contact-info a:hover {
+            text-decoration: underline;
+        }
+
         @media (max-width: 768px) {
             .hero h1 { font-size: 1.8rem; }
             .table-wrapper { overflow-x: auto; }
             table { min-width: 800px; }
             .controls { flex-direction: column; }
             .metric-toggle { margin-left: 0; }
+            .cases-table { font-size: 0.82rem; }
+            .contact-grid { grid-template-columns: 1fr; }
         }
     </style>
 </head>
@@ -334,6 +471,65 @@
             </thead>
             <tbody id="tableBody"></tbody>
         </table>
+    </div>
+
+    <!-- Example Cases Section -->
+    <h2 class="section-title">Example Cases</h2>
+    <p class="section-desc">
+        ADBench tasks span three difficulty levels, from single-step data retrieval (L1) to multi-tool orchestration with domain knowledge (L3). Below are representative sample queries.
+    </p>
+
+    <table class="cases-table">
+        <thead>
+            <tr><th>Level</th><th>Query</th><th>Category</th></tr>
+        </thead>
+        <tbody>
+            <tr><td><span class="level-tag level-l1">L1</span></td><td>What is the total spending across all accounts yesterday?</td><td>Single-step retrieval</td></tr>
+            <tr><td><span class="level-tag level-l1">L1</span></td><td>How many total impressions did all accounts receive yesterday?</td><td>Single-step retrieval</td></tr>
+            <tr><td><span class="level-tag level-l2">L2</span></td><td>What is the total spending on female audiences across all accounts in the past 30 days?</td><td>Filter + aggregation</td></tr>
+            <tr><td><span class="level-tag level-l2">L2</span></td><td>What is the overall average cost-per-click across all accounts yesterday?</td><td>Multi-field computation</td></tr>
+            <tr><td><span class="level-tag level-l3">L3</span></td><td>Based on the per-user billing cap rules, how many users have reached the spending cap given yesterday's impression data?</td><td>Knowledge + data fusion</td></tr>
+            <tr><td><span class="level-tag level-l3">L3</span></td><td>Does the peak conversion-rate hour for ad #189****5704 during Double-11 match the industry-wide golden hours?</td><td>Parallel orchestration + reasoning</td></tr>
+        </tbody>
+    </table>
+
+    <!-- Submission Portal Section -->
+    <h2 class="section-title">Submission Portal</h2>
+    <p class="section-desc">
+        Due to privacy-sensitive information in the benchmark queries, the dataset is not publicly released. We maintain and update the leaderboard through a centralized evaluation service. Model providers, research institutions, and enterprise developers are welcome to submit.
+    </p>
+
+    <div class="contact-section">
+        <div class="contact-grid">
+            <div class="contact-item">
+                <div class="contact-icon">🎯</div>
+                <div class="contact-info">
+                    <h4>Target Audience</h4>
+                    <p>Model providers, research institutions, and enterprise developers.</p>
+                </div>
+            </div>
+            <div class="contact-item">
+                <div class="contact-icon">📋</div>
+                <div class="contact-info">
+                    <h4>Required Materials</h4>
+                    <p>1. Public model endpoint (API or HuggingFace repo)<br>2. Model card / technical spec (I/O format, context window, etc.)</p>
+                </div>
+            </div>
+            <div class="contact-item">
+                <div class="contact-icon">📧</div>
+                <div class="contact-info">
+                    <h4>How to Submit</h4>
+                    <p>Send an email to <a href="mailto:lingxianghu@tencent.com">lingxianghu@tencent.com</a><br>Subject: <strong>[ADBench Eval Request] &lt;Institution / Model Name&gt;</strong></p>
+                </div>
+            </div>
+            <div class="contact-item">
+                <div class="contact-icon">⏱️</div>
+                <div class="contact-info">
+                    <h4>Turnaround</h4>
+                    <p>We will schedule the evaluation and send a full report within <strong>14 business days</strong>.</p>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
 
